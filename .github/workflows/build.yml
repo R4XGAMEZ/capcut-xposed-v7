@@ -7,9 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: fixed
     steps:
       - uses: actions/checkout@v4
 
@@ -19,15 +16,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Install Gradle
+      - name: Install Gradle & Build
         run: |
           wget -q https://services.gradle.org/distributions/gradle-8.4-bin.zip
           unzip -q gradle-8.4-bin.zip
-          export PATH=$PWD/gradle-8.4/bin:$PATH
-          gradle assembleDebug
+          ./gradle-8.4/bin/gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: CapcutXposed-v7
-          path: fixed/app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
