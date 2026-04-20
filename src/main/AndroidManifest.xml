@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.r4x.capcut_xposed">
+
+    <!-- Xposed Module Declaration -->
+    <application
+        android:allowBackup="false"
+        android:label="CapCut Xposed Helper v7"
+        android:description="@string/description"
+        android:hasCode="true">
+
+        <!-- Xposed Module meta-data -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="CapCut Helper Bridge v7 - IPC socket for automation" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="93" />
+
+    </application>
+
+    <!-- Permissions for socket and shell -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>
